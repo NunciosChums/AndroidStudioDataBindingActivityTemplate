@@ -2,7 +2,7 @@ package ${packageName};
 
 import android.databinding.ObservableField;
 
-public class ${viewModelClass} extends BaseViewModel {
+public class ${viewModelClass} {
 	private ${navigatorClass} navigator;
 
 	public final ObservableField<String> hello = new ObservableField<>();
