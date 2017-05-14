@@ -1,13 +1,11 @@
 package ${packageName};
 
 <#if screenType == "Fragment">
-import android.support.v4.app.Fragment;
-
-public class ${screenClass} extends Fragment {
+public class ${screenClass} extends BaseFragment {
 	private static final String PARAM = "param";
 
 <#else>
-public class ${screenClass} extends AppCompatActivity {
+public class ${screenClass} extends BaseAsUpActivity {
 </#if>
 	private ${screenClass}Binding binding;
   private ${viewModelClass} ${screenType?lower_case}Model;
@@ -63,7 +61,7 @@ public class ${screenClass} extends AppCompatActivity {
 	@Override
   protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    binding = DataBindingUtil.setContentView(this, R.layout.${layoutName});
+		binding = putContentView(R.layout.${layoutName});
     ${screenType?lower_case}Model = new ${viewModelClass}(navigator);
     binding.setModel(${screenType?lower_case}Model);
     binding.setNavigator(navigator);

@@ -11,11 +11,11 @@ public class ${viewModelClass} extends BaseViewModel {
 		this.navigator = navigator;
 	}
 
+	@Override
 	public void onCreate() {
+		super.onCreate();
 		hello.set("hello world!!!");
 	}
-
-	public void onDestroy() {}
 
 	public void click1() {
     navigator.click1();
