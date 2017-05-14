@@ -1,5 +1,7 @@
 package ${packageName};
 
+import android.support.annotation.Nullable;
+
 <#if screenType == "Fragment">
 public class ${screenClass} extends BaseFragment {
 	private static final String PARAM = "param";

@@ -1,4 +1,4 @@
-# AndroidStudio DataBidning Activity Template
+# AndroidStudio DataBinding Activity Template
 code template for activity, view model, navigator, layout xml for Android Studio
 
 * reference: https://github.com/jakubkinst/Android-ViewModelBinding
@@ -16,24 +16,24 @@ code template for activity, view model, navigator, layout xml for Android Studio
 ### Activity
 
 ```java
-package kr.susemi99.codetemplate;
+package kr.susemi99.codetemplate.activities;
 
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import kr.susemi99.codetemplate.R;
+import kr.susemi99.codetemplate.activities.base.BaseAsUpActivity;
 import kr.susemi99.codetemplate.databinding.MainActivityBinding;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseAsUpActivity {
   private MainActivityBinding binding;
   private MainActivityModel activityModel;
 
   @Override
   protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    binding = DataBindingUtil.setContentView(this, R.layout.main_activity);
+    binding = putContentView(R.layout.main_activity);
     activityModel = new MainActivityModel(navigator);
     binding.setModel(activityModel);
     binding.setNavigator(navigator);
@@ -66,20 +66,21 @@ public class MainActivity extends AppCompatActivity {
 ### Fragment
 
 ```java
-package kr.susemi99.codetemplate;
+package kr.susemi99.codetemplate.activities;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import kr.susemi99.codetemplate.R;
+import kr.susemi99.codetemplate.activities.base.BaseFragment;
 import kr.susemi99.codetemplate.databinding.MainFragmentBinding;
 
-public class MainFragment extends Fragment {
+public class MainFragment extends BaseFragment {
   private static final String PARAM = "param";
 
   private MainFragmentBinding binding;
@@ -152,7 +153,7 @@ public class MainFragment extends Fragment {
 ### ViewModel
 
 ```java
-package kr.susemi99.codetemplate;
+package kr.susemi99.codetemplate.activities;
 
 import android.databinding.ObservableField;
 
@@ -181,7 +182,7 @@ public class MainActivityModel {
 handle event in activity
 
 ```java
-package kr.susemi99.codetemplate;
+package kr.susemi99.codetemplate.activities;
 
 public interface MainActivityNavigator {
   void click1();
