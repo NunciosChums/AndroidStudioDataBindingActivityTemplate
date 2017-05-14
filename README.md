@@ -9,7 +9,7 @@ code template for activity, view model, navigator, layout xml for Android Studio
 3. Select folder in Android Studio
 4. `File - New - Activity - DataBinding Activity`
 
-## activity
+## Activity
 
 ```java
 package kr.susemi99.codetemplate;
@@ -82,20 +82,6 @@ public class MainFragment extends Fragment {
   private MainFragmentModel fragmentModel;
 
   private String param;
-  /***********************************
-   * navigator
-   ***********************************/
-  private MainFragmentNavigator navigator = new MainFragmentNavigator() {
-    @Override
-    public void click1() {
-      Log.i("APP# MainFragment | click1", "|" + "click1");
-    }
-
-    @Override
-    public void click2() {
-      Log.i("APP# MainFragment | click2", "|" + "click2");
-    }
-  };
 
   public MainFragment() {
     // Required empty public constructor
@@ -141,6 +127,21 @@ public class MainFragment extends Fragment {
     super.onDestroyView();
     fragmentModel.onDestroy();
   }
+
+  /***********************************
+   * navigator
+   ***********************************/
+  private MainFragmentNavigator navigator = new MainFragmentNavigator() {
+    @Override
+    public void click1() {
+      Log.i("APP# MainFragment | click1", "|" + "click1");
+    }
+
+    @Override
+    public void click2() {
+      Log.i("APP# MainFragment | click2", "|" + "click2");
+    }
+  };
 }
 ```
 
