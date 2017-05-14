@@ -9,7 +9,7 @@ code template for activity, view model, navigator, layout xml for Android Studio
 3. Select folder in Android Studio
 4. `File - New - Activity - DataBinding Activity`
 
-### activity
+## activity
 
 ```java
 package kr.susemi99.codetemplate;
@@ -59,7 +59,92 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-### ViewModel
+## Fragment
+
+```java
+package kr.susemi99.codetemplate;
+
+import android.databinding.DataBindingUtil;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import kr.susemi99.codetemplate.databinding.MainFragmentBinding;
+
+public class MainFragment extends Fragment {
+  private static final String PARAM = "param";
+
+  private MainFragmentBinding binding;
+  private MainFragmentModel fragmentModel;
+
+  private String param;
+  /***********************************
+   * navigator
+   ***********************************/
+  private MainFragmentNavigator navigator = new MainFragmentNavigator() {
+    @Override
+    public void click1() {
+      Log.i("APP# MainFragment | click1", "|" + "click1");
+    }
+
+    @Override
+    public void click2() {
+      Log.i("APP# MainFragment | click2", "|" + "click2");
+    }
+  };
+
+  public MainFragment() {
+    // Required empty public constructor
+  }
+
+  public static MainFragment instance() {
+    return new MainFragment();
+  }
+
+  public static MainFragment instance(String param) {
+    Bundle bundle = new Bundle();
+    bundle.putString(PARAM, param);
+    MainFragment fragment = new MainFragment();
+    fragment.setArguments(bundle);
+    return fragment;
+  }
+
+  @Override
+  public void onCreate(@Nullable Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    if (getArguments() != null) {
+      param = getArguments().getString(PARAM);
+    }
+  }
+
+  @Override
+  public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    return DataBindingUtil.inflate(inflater, R.layout.main_fragment, container, false).getRoot();
+  }
+
+  @Override
+  public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+    super.onActivityCreated(savedInstanceState);
+    binding = DataBindingUtil.getBinding(getView());
+    fragmentModel = new MainFragmentModel(navigator);
+    binding.setModel(fragmentModel);
+    binding.setNavigator(navigator);
+    fragmentModel.onCreate();
+  }
+
+  @Override
+  public void onDestroyView() {
+    super.onDestroyView();
+    fragmentModel.onDestroy();
+  }
+}
+```
+
+## ViewModel
 
 ```java
 package kr.susemi99.codetemplate;
@@ -86,7 +171,7 @@ public class MainActivityModel {
 }
 ```
 
-### Navigator
+## Navigator
 
 handle event in activity
 
