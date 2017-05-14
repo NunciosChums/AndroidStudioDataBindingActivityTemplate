@@ -9,8 +9,9 @@ code template for activity, view model, navigator, layout xml for Android Studio
 3. Select folder in Android Studio
 4. `File - New - Activity - DataBinding Activity`
 
+### activity
+
 ```java
-// activity
 package kr.susemi99.codetemplate;
 
 import android.databinding.DataBindingUtil;
@@ -58,8 +59,9 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
+### ViewModel
+
 ```java
-// view model
 package kr.susemi99.codetemplate;
 
 import android.databinding.ObservableField;
@@ -84,8 +86,11 @@ public class MainActivityModel {
 }
 ```
 
+### Navigator
+
+handle event in activity
+
 ```java
-// navigator
 package kr.susemi99.codetemplate;
 
 public interface MainActivityNavigator {
@@ -94,6 +99,8 @@ public interface MainActivityNavigator {
   void click2();
 }
 ```
+
+## Layout
 
 ```xml
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
