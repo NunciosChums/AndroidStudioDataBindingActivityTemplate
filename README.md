@@ -1,5 +1,5 @@
-# AndroidStudio DataBidning Activity Template
-code template for activity, view model, navigator, layout xml for Android Studio
+# AndroidStudio DataBinding Activity Template
+Make DataBinding code template for Android Studio
 
 * reference: https://github.com/jakubkinst/Android-ViewModelBinding
 * recommend: Turn on Auto Import see http://stackoverflow.com/a/16616085/1025379
