@@ -4,6 +4,8 @@ code template for activity, view model, navigator, layout xml for Android Studio
 * reference: https://github.com/jakubkinst/Android-ViewModelBinding
 * recommend: Turn on Auto Import see http://stackoverflow.com/a/16616085/1025379
 
+## How To Use
+
 1. Copy `DataBindingActivity` to `{Android Studio}/Contents/plugins/android/lib/templates/`
 2. Restart Android Studio
 3. Select folder in Android Studio
