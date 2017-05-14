@@ -1,14 +1,13 @@
 # AndroidStudio DataBidning Activity Template
 code template for activity, view model, navigator, layout xml for Android Studio
 
-reference: https://github.com/jakubkinst/Android-ViewModelBinding
+* reference: https://github.com/jakubkinst/Android-ViewModelBinding
+* recommend: Turn on Auto Import see http://stackoverflow.com/a/16616085/1025379
 
-recommend: Turn on Auto Import see http://stackoverflow.com/a/16616085/1025379
-
-1. Copy `DataBindingActivity' to `{Android Studio}/Contents/plugins/android/lib/templates/`
+1. Copy `DataBindingActivity` to `{Android Studio}/Contents/plugins/android/lib/templates/`
 2. Restart Android Studio
 3. Select folder in Android Studio
-4. `File - New - Activity - DabaDinging Activity`
+4. `File - New - Activity - DataBinding Activity`
 
 ```java
 // activity
