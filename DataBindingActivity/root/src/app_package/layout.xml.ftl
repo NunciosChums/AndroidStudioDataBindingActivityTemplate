@@ -34,5 +34,4 @@
       android:onClick="@{()->navigator.click2()}"
       android:text="click2"/>
 	</LinearLayout>
-
 </layout>
