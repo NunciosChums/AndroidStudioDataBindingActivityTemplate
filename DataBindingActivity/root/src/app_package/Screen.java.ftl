@@ -9,7 +9,6 @@ public class ${screenClass} extends BaseFragment {
 <#else>
 public class ${screenClass} extends BaseAsUpActivity {
 </#if>
-	private ${screenClass}Binding binding;
   private ${viewModelClass} ${screenType?lower_case}Model;
 
 	<#if screenType == "Fragment">
@@ -47,7 +46,7 @@ public class ${screenClass} extends BaseAsUpActivity {
   @Override
   public void onActivityCreated(@Nullable Bundle savedInstanceState) {
     super.onActivityCreated(savedInstanceState);
-    binding = DataBindingUtil.getBinding(getView());
+    ${screenClass}Binding binding = DataBindingUtil.getBinding(getView());
 		${screenType?lower_case}Model = new ${viewModelClass}(navigator);
     binding.setModel(${screenType?lower_case}Model);
 		binding.setNavigator(navigator);
@@ -63,7 +62,7 @@ public class ${screenClass} extends BaseAsUpActivity {
 	@Override
   protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-		binding = putContentView(R.layout.${layoutName});
+		${screenClass}Binding binding = putContentView(R.layout.${layoutName});
     ${screenType?lower_case}Model = new ${viewModelClass}(navigator);
     binding.setModel(${screenType?lower_case}Model);
     binding.setNavigator(navigator);
