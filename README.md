@@ -1,16 +1,29 @@
 # AndroidStudio DataBinding Activity Template
-Make DataBinding code template for Android Studio
+Make DataBinding code template for Android Studio 3.x
 
 * reference: https://github.com/jakubkinst/Android-ViewModelBinding
 * recommend: `Turn on Auto Import`. see http://stackoverflow.com/a/16616085/1025379
 
 ## How To Use
 
-1. Copy `DataBindingActivity` to `{Android Studio}/Contents/plugins/android/lib/templates/`
+1. Copy `DataBindingActivity` to `{Android Studio}/Contents/plugins/android/lib/templates/activities/`
 2. Restart Android Studio
 3. Select folder in Android Studio
 4. `File - New - Activity - DataBinding Activity`
 5. Rebuild if an error occurs.
+6. `app/build.gradle` must have this code.
+```
+android{
+  ...
+  dataBinding.enabled true
+  compileOptions {
+      sourceCompatibility JavaVersion.VERSION_1_8
+      targetCompatibility JavaVersion.VERSION_1_8
+  }
+  ...
+}
+```
+
 
 ## Generated Code Sample
 
@@ -173,6 +186,7 @@ public class MainActivityModel {
 
   public void click1() {
     navigator.click1();
+    hello.set("clicked 1");
   }
 }
 ```
@@ -217,7 +231,8 @@ public interface MainActivityNavigator {
     <TextView
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="@{model.hello}"/>
+      android:text="@{model.hello}"
+      tools:text="hello text here"/>
 
     <Button
       android:layout_width="wrap_content"
