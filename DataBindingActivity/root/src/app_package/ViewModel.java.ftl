@@ -19,5 +19,6 @@ public class ${viewModelClass} extends BaseViewModel {
 
 	public void click1() {
     navigator.click1();
+		hello.set("clicked 1");
   }
 }
