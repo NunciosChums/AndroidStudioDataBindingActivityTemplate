@@ -6,7 +6,7 @@ Make DataBinding code template for Android Studio 3.x
 
 ## How To Use
 
-1. Copy `DataBindingActivity` to `{Android Studio}/Contents/plugins/android/lib/templates/`
+1. Copy `DataBindingActivity` to `{Android Studio}/Contents/plugins/android/lib/templates/activities/`
 2. Restart Android Studio
 3. Select folder in Android Studio
 4. `File - New - Activity - DataBinding Activity`
